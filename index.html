@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ViStA Lab — BITS Pilani, K K Birla Goa Campus</title>
+<meta name="description" content="ViStA Lab at BITS Pilani, K K Birla Goa Campus — protein engineering, proteomics, marine biology and microplastics research led by Prof. Dr. Sumit Biswas.">
+<meta name="theme-color" content="#030a10">
+<link rel="preload" as="image" href="assets/logo/dark-letters.webp">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23030a10'/%3E%3Cpath d='M14 40c6-18 30-18 36-2' fill='none' stroke='%235ef2d6' stroke-width='9' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="is-loading">
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- Preloader -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="logo logo--loader play" aria-hidden="true">
+        <img class="logo__letters" src="assets/logo/dark-letters.webp" alt="" width="1600" height="616">
+        <span class="logo__shine"></span>
+        <img class="logo__mol" src="assets/logo/dark-molecule.webp" alt="" width="1600" height="616">
+        <img class="logo__crab" src="assets/logo/dark-crab.webp" alt="" width="1600" height="616">
+      </div>
+  <div class="loader__row">
+    <span class="mono">Descending</span>
+    <span class="loader__bar"><b id="loaderBar"></b></span>
+    <span class="mono" id="loaderNum">000</span>
+  </div>
+</div>
+
+<!-- Ambient layers -->
+<canvas class="snow" id="snow" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor" id="cursor" aria-hidden="true"><span class="cursor__label"></span></div>
+
+<!-- Navigation -->
+<header class="nav" id="nav">
+  <a class="nav__brand" href="#top" aria-label="ViStA Lab — home">
+    <img class="nav__logo nav__logo--dark" src="assets/logo/dark-mark.webp" alt="" width="1600" height="472"><img class="nav__logo nav__logo--light" src="assets/logo/light-mark.webp" alt="" width="1600" height="472">
+  </a>
+  <nav class="nav__links" aria-label="Primary">
+    <a href="#research">Research</a>
+    <a href="#footage">Footage</a>
+    <a href="#publications">Publications</a>
+    <a href="#people">People</a>
+    <a href="#join">Join</a>
+  </nav>
+  <a class="btn btn--ghost nav__cta" href="#contact" data-magnetic>Contact</a>
+  <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+</header>
+
+<div class="menu" id="menu" aria-hidden="true">
+  <nav aria-label="Mobile">
+    <a href="#research"><span class="mono">01</span>Research</a>
+    <a href="#footage"><span class="mono">02</span>Footage</a>
+    <a href="#publications"><span class="mono">03</span>Publications</a>
+    <a href="#people"><span class="mono">04</span>People</a>
+    <a href="#join"><span class="mono">05</span>Join</a>
+    <a href="#contact"><span class="mono">06</span>Contact</a>
+  </nav>
+</div>
+
+<!-- Depth gauge -->
+<aside class="gauge" id="gauge" aria-hidden="true">
+  <span class="gauge__label mono">Depth</span>
+  <div class="gauge__rail"><b id="gaugeFill"></b></div>
+  <span class="gauge__num mono"><span id="gaugeNum">0000</span> m</span>
+  <span class="gauge__zone mono" id="gaugeZone">Surface</span>
+</aside>
+
+<main id="main">
+
+  <!-- ═════════ HERO ═════════ -->
+  <section class="hero" id="top" data-zone="Surface">
+    <div class="hero__stick">
+      <canvas class="hero__gl" id="gl" aria-hidden="true"></canvas>
+      <div class="hero__vignette" aria-hidden="true"></div>
+
+      <div class="hero__meta mono">
+        <span id="heroDept"></span>
+        <span id="heroUni"></span>
+      </div>
+
+      <div class="hero__title" id="heroTitle">
+        <h1 aria-label="ViStA Lab">
+          <span class="hero__word" aria-hidden="true"><span class="ch"><i>V</i></span><span class="ch"><i>i</i></span><span class="ch"><i>S</i></span><span class="ch"><i>t</i></span><span class="ch"><i>A</i></span></span>
+          <span class="hero__lab mono" aria-hidden="true">Lab</span>
+        </h1>
+        <p class="hero__tag">Where biology <em>meets computation.</em></p>
+      </div>
+
+      <div class="hero__stages" id="heroStages" aria-live="off"></div>
+
+      <div class="hero__foot">
+        <div class="hero__index mono"><span id="stageNow">01</span><span class="hero__ticks" id="stageTicks"></span><span>04</span></div>
+        <div class="hero__scroll mono"><span>Scroll to dive</span><i></i></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ MANIFESTO ═════════ -->
+  <section class="manifesto" id="about" data-zone="Sunlight zone">
+    <p class="eyebrow mono reveal">( About the lab )</p>
+    <p class="manifesto__text" id="manifesto"></p>
+    <div class="manifesto__grid">
+      <p class="manifesto__about reveal" id="aboutText"></p>
+    </div>
+  </section>
+
+  <div class="marquee" id="marquee" aria-hidden="true"><div class="marquee__track"></div></div>
+
+  <!-- ═════════ RESEARCH ═════════ -->
+  <section class="research" id="research" data-zone="Twilight zone">
+    <div class="research__stick">
+      <header class="research__head">
+        <p class="eyebrow mono">( What we do )</p>
+        <h2 class="display">Four currents,<br><em>one lab.</em></h2>
+        <div class="research__progress"><b id="researchBar"></b></div>
+      </header>
+      <div class="research__track" id="researchTrack"></div>
+    </div>
+  </section>
+
+  <!-- ═════════ FOOTAGE ═════════ -->
+  <section class="footage" id="footage" data-zone="Midnight zone">
+    <div class="film" id="film">
+      <div class="film__stick">
+        <div class="film__frame" id="filmFrame">
+          <video id="filmVideo" muted loop playsinline preload="none"></video>
+          <div class="film__shade"></div>
+          <div class="film__hud mono" aria-hidden="true">
+            <span>REC ●</span><span id="filmClock">00:00:00</span><span>ViStA / field log 02</span>
+          </div>
+          <div class="film__copy" id="filmCopy"></div>
+        </div>
+        <p class="film__intro display" id="filmIntro">From the <em>field log.</em></p>
+      </div>
+    </div>
+
+    <div class="scope">
+      <div class="scope__lens reveal" id="scopeLens" data-cursor="Play">
+        <video id="scopeVideo" muted loop playsinline preload="none"></video>
+        <svg class="scope__reticle" viewBox="0 0 200 200" aria-hidden="true">
+          <circle cx="100" cy="100" r="98"/><circle cx="100" cy="100" r="64"/><circle cx="100" cy="100" r="30"/>
+          <path d="M100 0v200M0 100h200"/>
+        </svg>
+        <svg class="scope__ring" viewBox="0 0 300 300" aria-hidden="true">
+          <defs><path id="ringPath" d="M150,150 m-138,0 a138,138 0 1,1 276,0 a138,138 0 1,1 -276,0"/></defs>
+          <text><textPath href="#ringPath" textLength="862" lengthAdjust="spacing">TACHYPLEUS GIGAS · FIELD OBSERVATION · VISTA LAB · GOA · TACHYPLEUS GIGAS · FIELD OBSERVATION · VISTA LAB · GOA ·</textPath></text>
+        </svg>
+      </div>
+      <div class="scope__copy" id="scopeCopy"></div>
+    </div>
+  </section>
+
+  <!-- ═════════ PUBLICATIONS ═════════ -->
+  <section class="pubs" id="publications" data-zone="Abyss">
+    <header class="section-head">
+      <p class="eyebrow mono reveal">( Research output )</p>
+      <h2 class="display split">Published <em>work.</em></h2>
+    </header>
+
+    <article class="feature reveal" id="feature"></article>
+
+    <ol class="pubs__list" id="pubList"></ol>
+    <p class="pubs__more reveal"><a class="link" id="pubMore" target="_blank" rel="noopener">Full profile on Google Scholar <span aria-hidden="true">↗</span></a></p>
+  </section>
+
+  <!-- ═════════ PEOPLE ═════════ -->
+  <section class="people" id="people" data-zone="Seabed">
+    <header class="section-head">
+      <p class="eyebrow mono reveal">( Our people )</p>
+      <h2 class="display split">Meet the <em>team.</em></h2>
+      <p class="section-head__sub reveal">A diverse group of researchers united by curiosity, a love for science, and the drive to ask questions that matter.</p>
+    </header>
+    <div class="pi reveal" id="pi"></div>
+    <div class="team" id="team"></div>
+    <div class="alumni reveal">
+      <p class="eyebrow mono">( Alumni )</p>
+      <ul id="alumni"></ul>
+    </div>
+  </section>
+
+  <!-- ═════════ JOIN ═════════ -->
+  <section class="join" id="join" data-zone="Seabed">
+    <div class="join__media reveal"><img id="joinImg" alt="A ViStA Lab researcher taking a refractometer reading" loading="lazy"><span class="mono">Life at the lab</span></div>
+    <div class="join__copy">
+      <p class="eyebrow mono reveal">( Join us )</p>
+      <h2 class="display split" id="joinTitle"></h2>
+      <p class="join__text reveal" id="joinText"></p>
+      <div id="openings"></div>
+      <a class="btn btn--solid reveal" id="joinCta" data-magnetic>Send your CV <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <!-- ═════════ CONTACT ═════════ -->
+  <section class="contact" id="contact" data-zone="Seabed">
+    <canvas class="contact__globe" id="globe" aria-hidden="true"></canvas>
+    <p class="eyebrow mono reveal">( Get in touch )</p>
+    <h2 class="contact__big display split">Let's talk <em>science.</em></h2>
+    <p class="contact__text reveal" id="contactText"></p>
+
+    <div class="contact__grid">
+      <form class="form reveal" id="form" novalidate>
+        <div class="field"><input id="fName" name="name" required placeholder=" " autocomplete="name"><label for="fName">Full name</label></div>
+        <div class="field"><input id="fSubject" name="subject" required placeholder=" "><label for="fSubject">Subject</label></div>
+        <div class="field"><textarea id="fMsg" name="message" rows="4" required placeholder=" "></textarea><label for="fMsg">Message</label></div>
+        <p class="form__note mono" id="formNote" role="status">Opens a ready-to-send email in your mail app.</p>
+        <button class="btn btn--solid" type="submit" data-magnetic>Compose email <span aria-hidden="true">→</span></button>
+      </form>
+
+      <dl class="card reveal">
+        <div><dt class="mono">Email</dt><dd><a class="link" id="cEmail"></a></dd></div>
+        <div><dt class="mono">Address</dt><dd id="cAddr"></dd></div>
+        <div><dt class="mono">Coordinates</dt><dd><a class="link" id="cMap" target="_blank" rel="noopener"></a></dd></div>
+        <div><dt class="mono">Local time · Goa</dt><dd id="cTime">—</dd></div>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer__word" aria-hidden="true"><i>ViStA</i></div>
+  <div class="footer__row mono">
+    <span id="footCopy"></span>
+    <span id="footUni"></span>
+    <a href="#top">Back to surface ↑</a>
+  </div>
+</footer>
+
+<script src="js/content.js"></script>
+<script src="js/gl.js"></script>
+<script src="js/scenes.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
