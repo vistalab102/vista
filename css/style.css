@@ -434,6 +434,7 @@ body.on-light:not(.menu-open) .nav__logo--light { display: block; }
   .panel { width: 100%; height: auto; grid-template-columns: minmax(0, 1fr); }
   .panel h3 { margin-top: 40px; }
   .panel__scene { border-left: 0; border-top: 1px solid var(--line); aspect-ratio: 4 / 3; }
+  .hero { height: 380vh; }
   .film { height: 220vh; }
   .team { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 32px; }
   .member { transform: none !important; }
@@ -443,9 +444,15 @@ body.on-light:not(.menu-open) .nav__logo--light { display: block; }
   .pub a { grid-template-columns: 52px minmax(0, 1fr); gap: 6px 14px; padding: 22px 6px; }
   .pub__venue { grid-column: 2; }
   .pub__arrow { display: none; }
+  /* bigger tap areas for small text links */
+  .pubs__more .link, .card .link, .footer__row a { position: relative; }
+  .pubs__more .link::after, .card .link::after, .footer__row a::after { content: ''; position: absolute; inset: -12px -4px; }
   .contact__globe { width: 110vw; right: -30vw; opacity: .45; }
   }
 @media (max-width: 520px) {
+  .pi { row-gap: 22px; }
+  .pi__body { grid-column: 1 / -1; }
+  .pi__links { margin-top: 22px; }
   .hero__word { font-size: 31vw; }
     .footer__row { flex-direction: column; }
 }

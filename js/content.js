@@ -174,6 +174,8 @@ window.VISTA = {
   alumni: [
     { name: 'Dr. Omprakash Chauhan', image: 'assets/team/omprakash.webp' },
     { name: 'Dr. Ram K', image: 'assets/team/ram.webp' },
+    { name: 'Dr. Vivek Ratre', image: 'assets/team/vivek.webp' },
+    { name: 'Dr. Lakshmi Menon', image: 'assets/team/lakshmi.webp' },
   ],
 
   join: {
